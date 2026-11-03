@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Карточка объекта Обуховской Обороны 95к8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<style>
+/* Layout: phone-first reading column for the agent's client; goal switch on top, one answer, three numbers, then price picture, checks, reasons, neighbours, agent */
+:root {
+  --bg: #f4f6f7;
+  --card: #ffffff;
+  --ink: #15202b;
+  --ink-2: #4a5664;
+  --muted: #66717d;
+  --line: #dde3e7;
+  --track: #e4e9ed;
+  --accent: #2a78d6;
+  --accent-ink: #1c5cab;
+  --accent-wash: rgba(42, 120, 214, 0.12);
+  --good: #0ca30c;
+  --good-ink: #006300;
+  --good-wash: rgba(12, 163, 12, 0.10);
+  --warn: #fab219;
+  --warn-ink: #8a5a00;
+  --warn-wash: rgba(250, 178, 25, 0.17);
+  --bad: #d03b3b;
+  --bad-ink: #a32a2a;
+  --bad-wash: rgba(208, 59, 59, 0.09);
+  --bar: #7f8c99;
+  --on-fill: #ffffff;
+  --font-display: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111619; --card: #192026; --ink: #e8edf1; --ink-2: #b7c1cb; --muted: #8f9ba7; --line: #2a333b; --track: #27313a;
+    --accent: #3987e5; --accent-ink: #8bb8f0; --accent-wash: rgba(57, 135, 229, 0.20);
+    --good-ink: #4cc24c; --good-wash: rgba(12, 163, 12, 0.17);
+    --warn-ink: #f2c14e; --warn-wash: rgba(250, 178, 25, 0.14);
+    --bad-ink: #ee8a8a; --bad-wash: rgba(208, 59, 59, 0.17);
+    --bar: #64717e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111619; --card: #192026; --ink: #e8edf1; --ink-2: #b7c1cb; --muted: #8f9ba7; --line: #2a333b; --track: #27313a;
+  --accent: #3987e5; --accent-ink: #8bb8f0; --accent-wash: rgba(57, 135, 229, 0.20);
+  --good-ink: #4cc24c; --good-wash: rgba(12, 163, 12, 0.17);
+  --warn-ink: #f2c14e; --warn-wash: rgba(250, 178, 25, 0.14);
+  --bad-ink: #ee8a8a; --bad-wash: rgba(208, 59, 59, 0.17);
+  --bar: #64717e; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 24px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 36px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(26px, 5.2vw, 38px); font-weight: 600; line-height: 1.15; }
+h2 { font-size: clamp(18px, 3.2vw, 21px); font-weight: 500; line-height: 1.3; }
+p { margin: 0; }
+.eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.lead { color: var(--ink-2); max-width: 62ch; }
+.small { font-size: 14px; color: var(--muted); }
+section { display: grid; gap: 16px; min-width: 0; }
+
+/* header */
+.head { display: grid; gap: 10px; }
+.facts { font-size: 17px; color: var(--ink-2); }
+.price-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 4px; }
+.price { font-size: clamp(30px, 6vw, 40px); font-weight: 700; line-height: 1; }
+.ppm { font-size: 17px; color: var(--ink-2); }
+
+/* goal switch */
+.goal { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: var(--track); border-radius: 12px; max-width: 520px; }
+.goal button { font: inherit; font-size: 15px; font-weight: 600; color: var(--ink-2); background: transparent; border: 0; border-radius: 9px; padding: 10px 12px; cursor: pointer; }
+.goal button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10); }
+.goal button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* answer */
+.answer { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 12px; }
+.a-main { font-size: clamp(24px, 4.6vw, 30px); font-weight: 700; line-height: 1.2; }
+.a-text { color: var(--ink-2); max-width: 60ch; }
+.a-other { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.stat { display: grid; gap: 2px; align-content: start; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.stat-label { font-size: 13px; color: var(--muted); }
+.stat-value { font-size: 21px; font-weight: 700; line-height: 1.25; }
+.stat-note { font-size: 13px; color: var(--ink-2); }
+.pill { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; padding: 4px 11px 4px 6px; border-radius: 999px; width: fit-content; }
+.pill .ic { width: 20px; height: 20px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--on-fill); flex: none; }
+.pill-good { background: var(--good-wash); color: var(--good-ink); } .pill-good .ic { background: var(--good); }
+.pill-warn { background: var(--warn-wash); color: var(--warn-ink); } .pill-warn .ic { background: var(--warn); color: #15202b; }
+.pill-bad { background: var(--bad-wash); color: var(--bad-ink); } .pill-bad .ic { background: var(--bad); }
+.pill-info { background: var(--track); color: var(--ink-2); } .pill-info .ic { background: var(--bar); }
+
+/* price scale */
+.scale { position: relative; padding-top: 34px; padding-bottom: 26px; }
+.scale-track { position: relative; height: 12px; background: var(--track); border-radius: 6px; }
+.zone { position: absolute; top: 0; height: 12px; border-radius: 3px; }
+.zone-good { background: var(--good); border-radius: 6px 3px 3px 6px; }
+.zone-market { background: var(--accent); }
+.zone-bad { background: var(--bad); border-radius: 3px 6px 6px 3px; }
+.ask-mark { position: absolute; top: -9px; width: 4px; height: 30px; margin-left: -2px; background: var(--ink); border-radius: 2px; }
+.ask-label { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; font-size: 14px; font-weight: 600; }
+.tick { position: absolute; top: 22px; transform: translateX(-50%); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.legend li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; align-items: start; }
+.sw { width: 14px; height: 14px; border-radius: 3px; margin-top: 4px; }
+.legend b { font-weight: 600; }
+
+/* speed meter */
+.meter-wrap { display: grid; gap: 8px; }
+.speed { position: relative; padding-top: 30px; }
+.speed-track { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 2px; height: 12px; }
+.speed-track i { display: block; height: 12px; }
+.speed-track i:nth-child(1) { background: var(--good); border-radius: 6px 0 0 6px; }
+.speed-track i:nth-child(2) { background: var(--warn); }
+.speed-track i:nth-child(3) { background: var(--bad); border-radius: 0 6px 6px 0; }
+.speed-mark { position: absolute; top: 21px; width: 4px; height: 30px; margin-left: -2px; background: var(--ink); border-radius: 2px; }
+.speed-label { position: absolute; top: 0; white-space: nowrap; font-size: 14px; font-weight: 600; }
+.speed-cap { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 2px; font-size: 13px; color: var(--muted); }
+
+/* price → time chart (investor view) */
+.chart { width: 100%; min-width: 0; position: relative; }
+.chart svg { display: block; overflow: visible; }
+.readout { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.readout-text { font-size: 17px; }
+.slider-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: center; }
+.slider-row label { font-size: 14px; color: var(--muted); }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+input[type="range"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; color: var(--muted); font-weight: 500; }
+thead th { color: var(--muted); font-weight: 500; }
+
+/* checks */
+.checks { list-style: none; margin: 0; padding: 0; display: grid; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+.checks li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; padding: 16px 18px; border-top: 1px solid var(--line); align-items: start; }
+.checks li:first-child { border-top: 0; }
+.checks h3 { font-size: 16px; margin: 0; font-weight: 600; }
+.checks p { color: var(--ink-2); margin-top: 4px; }
+.status { font-size: 13px; font-weight: 600; color: var(--muted); background: var(--track); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.visit { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; background: var(--accent-wash); border-radius: 12px; padding: 14px 16px; }
+.visit b { display: block; }
+
+/* waterfall */
+.wf { display: grid; gap: 12px; }
+.wf-row { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr); gap: 4px 16px; align-items: center; }
+.wf-label { font-size: 15px; }
+.wf-label small { display: block; color: var(--muted); font-size: 13px; }
+.wf-row.total .wf-label { font-weight: 600; }
+.wf-track { position: relative; height: 24px; }
+.wf-bar { position: absolute; top: 0; height: 24px; }
+.wf-bar.t { background: var(--accent); border-radius: 0 4px 4px 0; }
+.wf-bar.m { background: var(--bar); border-radius: 4px; }
+.wf-bar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.wf-val { position: absolute; top: 3px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.wf-val.in { color: var(--on-fill); transform: translateX(calc(-100% - 8px)); }
+.wf-val.left { color: var(--ink-2); background: var(--bg); padding: 0 3px; transform: translateX(calc(-100% - 4px)); }
+.wf-ref { position: absolute; top: -6px; bottom: -6px; width: 2px; margin-left: -1px; background: var(--ink); opacity: 0.55; }
+.wf-axis { position: relative; height: 18px; }
+.pm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; }
+.pm ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.pm li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; }
+.sign { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.sign.plus { background: var(--good-wash); color: var(--good-ink); }
+.sign.minus { background: var(--bad-wash); color: var(--bad-ink); }
+.pm h3 { font-size: 15px; margin: 0; color: var(--muted); font-weight: 600; }
+
+/* neighbours */
+.dp { display: grid; gap: 14px; }
+.dp-row { display: grid; gap: 2px; }
+.dp-name { font-size: 14px; color: var(--ink-2); }
+.dp-track { position: relative; height: 50px; border-bottom: 1px solid var(--line); }
+.dot { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--bar); border: 2px solid var(--bg); box-sizing: content-box; padding: 0; cursor: default; }
+.dot::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+.dot:hover, .dot:focus-visible { background: var(--ink-2); outline: none; box-shadow: 0 0 0 2px var(--accent); }
+.dp-ask { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent); border-radius: 2px; }
+.dp-axis { position: relative; height: 18px; }
+details { font-size: 14px; }
+summary { cursor: pointer; color: var(--accent-ink); font-weight: 500; width: fit-content; }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+details table { margin-top: 10px; }
+details td:first-child { color: var(--ink); }
+
+/* money */
+.receipts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.receipt { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 12px; align-content: start; }
+.receipt h3 { margin: 0; font-size: 17px; font-weight: 600; }
+.receipt .sub { font-size: 14px; color: var(--muted); margin-top: -8px; }
+.stack-wrap { position: relative; padding-block: 5px; }
+.stack { display: flex; gap: 2px; height: 16px; }
+.seg { height: 16px; }
+.seg.c { background: var(--bar); }
+.seg.p { background: var(--good); }
+.seg:first-child { border-radius: 4px 0 0 4px; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg-loss { position: absolute; top: 5px; height: 16px; background: repeating-linear-gradient(135deg, var(--bad) 0 3px, transparent 3px 6px); border-radius: 0 4px 4px 0; }
+.diff-mark { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--ink); border-radius: 1px; }
+.stack-key { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--muted); }
+.stack-key span { display: inline-flex; align-items: center; gap: 6px; }
+.stack-key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.stack-key i.ln { width: 2px; height: 14px; border-radius: 1px; background: var(--ink); }
+.stack-key i.hatch { background: repeating-linear-gradient(135deg, var(--bad) 0 2px, transparent 2px 4px); outline: 1px solid var(--bad); outline-offset: -1px; }
+.lines { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; font-size: 15px; }
+.lines dt { color: var(--ink-2); }
+.lines dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lines .sum { font-weight: 600; color: var(--ink); padding-top: 6px; border-top: 1px solid var(--line); }
+.result { font-size: 20px; font-weight: 700; }
+.result.good { color: var(--good-ink); }
+.result.bad { color: var(--bad-ink); }
+
+/* confidence + next */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.two > div { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.meter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 320px; }
+.meter i { height: 10px; background: var(--track); }
+.meter i.on { background: var(--accent); }
+.meter i:first-child { border-radius: 5px 0 0 5px; } .meter i:last-child { border-radius: 0 5px 5px 0; }
+.meter-labels { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 320px; font-size: 13px; color: var(--muted); }
+.meter-labels b { color: var(--ink); }
+.bul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }
+.steps { margin: 0; padding-left: 22px; display: grid; gap: 6px; color: var(--ink-2); }
+
+/* agent */
+.agent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; background: var(--card); border: 1px dashed var(--bar); border-radius: 14px; padding: 16px 18px; }
+.avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--accent-wash); color: var(--accent-ink); display: grid; place-items: center; font-weight: 700; font-size: 18px; }
+.agent b { display: block; font-size: 17px; }
+.agent .ex { display: inline-block; font-size: 12px; font-weight: 600; color: var(--warn-ink); background: var(--warn-wash); padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; max-width: 70ch; }
+
+#tip { position: fixed; z-index: 20; pointer-events: none; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: 13px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); max-width: 260px; }
+#tip strong { display: block; font-size: 15px; }
+#tip span { color: var(--muted); display: block; }
+
+@media (max-width: 640px) {
+  .wrap { gap: 30px; }
+  .stats, .receipts, .two, .pm { grid-template-columns: minmax(0, 1fr); }
+  .wf-row { grid-template-columns: minmax(0, 1fr); }
+  .checks li { grid-template-columns: minmax(0, 1fr); }
+  .status { width: fit-content; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="head">
+    <p class="eyebrow">От вашего агента · 3 ноября 2026</p>
+    <h1>пр. Обуховской Обороны, 95к8</h1>
+    <p class="facts">3-комнатная · 71,8&nbsp;м² · 1&nbsp;этаж из&nbsp;2 · дом 1927&nbsp;года</p>
+    <p class="small">Санкт-Петербург, Палевский жилмассив, 300&nbsp;м до метро «Елизаровская» · объявление Авито №&nbsp;8490616388</p>
+    <div class="price-line">
+      <span class="price">13,0&nbsp;млн&nbsp;₽</span>
+      <span class="ppm">181&nbsp;тыс.&nbsp;₽ за&nbsp;м²</span>
+    </div>
+  </header>
+
+  <section aria-label="Цель покупки">
+    <div class="goal" role="group" aria-label="Цель покупки">
+      <button type="button" id="g-home" data-set="home" aria-pressed="true">Для жизни</button>
+      <button type="button" id="g-invest" data-set="invest" aria-pressed="false">Под инвестиции</button>
+    </div>
+
+    <article class="answer" data-goal="home">
+      <span class="pill pill-info"><span class="ic" aria-hidden="true">≈</span>Цена в рынке</span>
+      <p class="a-main">Без переплаты, но и без скидки</p>
+      <p class="a-text">Похожие квартиры с учётом ремонта стоят 11,7–13,6&nbsp;млн: 11,7, если продавать за&nbsp;3&nbsp;месяца, 13,6, если ждать около 10. По&nbsp;13&nbsp;млн эту будут продавать около 7&nbsp;месяцев, так что поторговаться можно.</p>
+      <p class="a-other">Для перепродажи эта цена высокая: выгодно покупать до&nbsp;9,1&nbsp;млн.</p>
+    </article>
+    <article class="answer" data-goal="invest" hidden>
+      <span class="pill pill-bad"><span class="ic" aria-hidden="true">✕</span>Не подходит для перепродажи</span>
+      <p class="a-main">Выгодно — до&nbsp;9,1&nbsp;млн</p>
+      <p class="a-text">Купить за&nbsp;13&nbsp;млн и перепродать с заработком не получится. Лучший вариант — ремонт и продажа примерно через полтора года — даёт около 10&nbsp;% годовых. 30&nbsp;% получится при покупке не дороже 9,1&nbsp;млн, а так дёшево продавец вряд&nbsp;ли отдаст.</p>
+      <p class="a-other">Для жизни цена в рынке: 11,7–13,6&nbsp;млн.</p>
+    </article>
+
+    <div class="stats" data-goal="home">
+      <div class="stat"><span class="stat-label">Рыночная цена</span><span class="stat-value">11,7–13,6&nbsp;млн</span><span class="stat-note">цена объявления внутри</span></div>
+      <div class="stat"><span class="stat-label">Купят примерно за</span><span class="stat-value">7&nbsp;месяцев</span><span class="stat-note">есть время на торг</span></div>
+      <div class="stat"><span class="stat-label">Ремонт</span><span class="stat-value">≈&nbsp;4,3&nbsp;млн</span><span class="stat-note">около 4 месяцев и согласования: дом — памятник</span></div>
+    </div>
+    <div class="stats" data-goal="invest" hidden>
+      <div class="stat"><span class="stat-label">Выгодная цена покупки</span><span class="stat-value">до&nbsp;9,1&nbsp;млн</span><span class="stat-note">на 30 % ниже объявления</span></div>
+      <div class="stat"><span class="stat-label">Дешевле вряд ли отдадут</span><span class="stat-value">9,75&nbsp;млн</span><span class="stat-note">это уже торг на 25 %</span></div>
+      <div class="stat"><span class="stat-label">Доходность при 13&nbsp;млн</span><span class="stat-value">≈&nbsp;10&nbsp;% годовых</span><span class="stat-note">нужно от 30 %</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-scale">
+    <h2 id="h-scale">Где цена объявления среди других цен</h2>
+    <div class="scale" id="scale" role="img" aria-label="Шкала цен от 8,5 до 15 млн: выгодно для перепродажи до 9,1 млн, рыночная цена 11,7–13,6 млн, цена объявления 13,0 млн, дороже 14,1 млн квартиру не купят"></div>
+    <ul class="legend">
+      <li><span class="sw" style="background: var(--good)"></span><span><b>До 9,1&nbsp;млн</b> — цена, при которой выгодно покупать под перепродажу. Но дешевле 9,75&nbsp;млн продавец вряд&nbsp;ли отдаст, поэтому для перепродажи квартира не подходит.</span></li>
+      <li><span class="sw" style="background: var(--accent)"></span><span><b>11,7–13,6&nbsp;млн</b> — рыночная цена этой квартиры: 11,7, если продавать за&nbsp;3&nbsp;месяца, 13,6, если ждать около 10&nbsp;месяцев.</span></li>
+      <li><span class="sw" style="background: var(--bad)"></span><span><b>Дороже 14,1&nbsp;млн</b> — по такой цене её, скорее всего, не купят.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-speed">
+    <h2 id="h-speed">Как быстро её купят</h2>
+    <div class="meter-wrap">
+      <div class="speed" id="speed" role="img" aria-label="По цене 13 млн квартиру купят примерно за 7 месяцев: это долго"></div>
+      <div class="speed-cap"><span>быстро, до 3 мес.</span><span>3–6 мес.</span><span>долго, больше 6</span></div>
+    </div>
+    <p class="lead" data-goal="home">По&nbsp;13&nbsp;млн её будут продавать долго. По&nbsp;12–12,5&nbsp;млн её купили&nbsp;бы за&nbsp;4–5&nbsp;месяцев, поэтому продавцу есть смысл уступить.</p>
+    <p class="lead" data-goal="invest" hidden>По&nbsp;11,7&nbsp;млн её купят примерно за&nbsp;3&nbsp;месяца. До&nbsp;9,1&nbsp;млн цена не опустится: покупатели для жизни заберут её раньше.</p>
+  </section>
+
+  <section aria-labelledby="h-resale" data-goal="invest" hidden>
+    <h2 id="h-resale">Если перепродавать: цена и срок</h2>
+    <p class="lead">Чем дороже выставить, тем дольше продавать. Двигайте ползунок или ведите по графику.</p>
+    <div class="chart" id="speedChart"></div>
+    <div class="slider-row">
+      <label for="speedPrice">Цена, млн</label>
+      <input type="range" id="speedPrice" min="10" max="15" step="0.1" value="13.6">
+    </div>
+    <div class="readout" aria-live="polite">
+      <span id="speedPill" class="pill pill-bad"><span class="ic" aria-hidden="true">!</span><span id="speedPillText">долго: больше 6 месяцев</span></span>
+      <span class="readout-text" id="speedText">Если выставить за&nbsp;13,6&nbsp;млн — продастся примерно за&nbsp;10,0&nbsp;месяца</span>
+    </div>
+    <div class="tbl-wrap">
+      <table aria-label="Срок продажи при разной цене">
+        <thead><tr><th>Цена, млн</th><th>11</th><th>11,5</th><th>12</th><th>12,5</th><th>13</th><th>13,5</th><th>14</th><th>14,5</th></tr></thead>
+        <tbody><tr><td>Продаётся, месяцев</td><td>1,6</td><td>2,5</td><td>3,7</td><td>5,2</td><td>7,0</td><td>9,3</td><td>12,2</td><td>не продастся</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-checks">
+    <h2 id="h-checks">Что мы проверим до задатка</h2>
+    <ul class="checks">
+      <li>
+        <div><h3>Что охраняется в доме-памятнике</h3><p>Палевский жилмассив с 2001&nbsp;года в списке выявленных памятников. Узнаем в КГИОП и по выписке ЕГРН, что охраняется — фасад, окна, планировка — и есть&nbsp;ли охранное обязательство. От этого зависят ремонт и его сроки.</p></div>
+        <span class="status">ещё не проверено</span>
+      </li>
+      <li>
+        <div><h3>Перекрытия и сырость</h3><p>Квартира на первом этаже дома 1920-х годов. Выясним, из чего перекрытия и что под полом, был&nbsp;ли в доме капремонт. Покупателю с ипотекой это тоже важно.</p></div>
+        <span class="status">ещё не проверено</span>
+      </li>
+      <li>
+        <div><h3>Встречная покупка продавца</h3><p>Продажа альтернативная: продавец одновременно покупает другое жильё. Узнаем, выбрана&nbsp;ли уже квартира и на каком этапе её покупка, чтобы цепочка не сорвала сделку.</p></div>
+        <span class="status">ещё не проверено</span>
+      </li>
+      <li>
+        <div><h3>Документы и долги</h3><p>Собственник один. Запросим выписку из ЕГРН и документ, по которому он получил квартиру, проверим долги за коммунальные услуги и кто в ней прописан.</p></div>
+        <span class="status">ещё не проверено</span>
+      </li>
+    </ul>
+    <div class="visit">
+      <span class="pill pill-info"><span class="ic" aria-hidden="true">i</span>Вам</span>
+      <div><b>Проверьте на просмотре сырость</b><span class="small">Это первый этаж дома 1927&nbsp;года. Затхлый запах, пятна у плинтусов и холодный пол — повод позвать специалиста до задатка.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-why">
+    <h2 id="h-why">Почему квартира стоит столько</h2>
+    <p class="lead">Берём среднюю цену отремонтированных квартир рядом и вычитаем то, что снижает цену этой.</p>
+    <div class="wf" id="wf"></div>
+    <div class="pm">
+      <div>
+        <h3>Что помогает цене</h3>
+        <ul>
+          <li><span class="sign plus" aria-hidden="true">+</span><span>Метро «Елизаровская» в&nbsp;300&nbsp;м</span></li>
+          <li><span class="sign plus" aria-hidden="true">+</span><span>Тихий зелёный двор, окна во&nbsp;двор</span></li>
+          <li><span class="sign plus" aria-hidden="true">+</span><span>Потолки 3&nbsp;м и свой вход с улицы</span></li>
+          <li><span class="sign plus" aria-hidden="true">+</span><span>Кирпичный дом в известном жилмассиве 1920-х годов</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Что снижает цену</h3>
+        <ul>
+          <li><span class="sign minus" aria-hidden="true">−</span><span>Нужен полный ремонт: окна, трубы, электрика, санузел, кухня</span></li>
+          <li><span class="sign minus" aria-hidden="true">−</span><span>Дом — памятник: замену окон и перепланировку согласовывают</span></li>
+          <li><span class="sign minus" aria-hidden="true">−</span><span>Две комнаты из трёх смежные, кухня 8,8&nbsp;м² с&nbsp;газом</span></li>
+          <li><span class="sign minus" aria-hidden="true">−</span><span>Первый этаж. В&nbsp;расчёте его нет, а обычно он снижает цену</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-nb">
+    <h2 id="h-nb">Соседи по цене за&nbsp;метр</h2>
+    <p class="lead">Каждая точка — объявление. Синяя линия — эта квартира, 181,1&nbsp;тыс.&nbsp;₽ за&nbsp;м². Она дешевле 8 из&nbsp;10 соседей в старом состоянии.</p>
+    <div class="dp" id="dp"></div>
+    <details>
+      <summary>Все объявления списком</summary>
+      <div class="tbl-wrap"><table id="dpTable"><thead><tr><th>Адрес</th><th>Квартира</th><th>Цена, млн</th><th>Тыс. ₽ за м²</th></tr></thead><tbody></tbody></table></div>
+    </details>
+  </section>
+
+  <section aria-labelledby="h-money" data-goal="invest" hidden>
+    <h2 id="h-money">Деньги: купить и перепродать</h2>
+    <div class="receipts" id="receipts"></div>
+    <p class="small">Стоимость денег — проценты по кредиту или доход, который эти деньги принесли&nbsp;бы на вкладе: 14&nbsp;% годовых. Суммы округлены до&nbsp;0,1&nbsp;млн.</p>
+  </section>
+
+  <section class="two" aria-label="Точность и дальнейшие шаги">
+    <div>
+      <h2>Насколько точна оценка</h2>
+      <div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></div>
+      <div class="meter-labels"><span>низко</span><b>средне</b><span>высоко</span></div>
+      <ul class="bul">
+        <li>Цены соседей — объявления, а не сделки: 20 квартир в старых домах у Елизаровской.</li>
+        <li>Состояние соседних квартир определяли по трём фото в объявлении.</li>
+      </ul>
+      <p class="a-text"><b>Что может изменить вывод.</b> Первый этаж в расчёт не заложен. Если он снижает цену на&nbsp;5&nbsp;%, рыночная цена — 11,1–13,0&nbsp;млн, и 13&nbsp;млн окажутся её верхней границей.</p>
+    </div>
+    <div>
+      <h2>Что дальше</h2>
+      <ol class="steps" data-goal="home">
+        <li>Посмотреть квартиру: проверить сухость пола и стен, оценить смежные комнаты.</li>
+        <li>До задатка мы проверим статус памятника, документы и встречную покупку продавца.</li>
+        <li>Предложить продавцу 12–12,5&nbsp;млн: по такой цене квартиру купили&nbsp;бы за&nbsp;4–5&nbsp;месяцев.</li>
+        <li>С ремонтом примерно за&nbsp;4,3&nbsp;млн квартира обойдётся около 17,3&nbsp;млн.</li>
+      </ol>
+      <ol class="steps" data-goal="invest" hidden>
+        <li>Сейчас не покупать: по&nbsp;13&nbsp;млн перепродажа не окупается.</li>
+        <li>Выгодно было&nbsp;бы до&nbsp;9,1&nbsp;млн, но дешевле 9,75&nbsp;млн продавец вряд&nbsp;ли отдаст.</li>
+        <li>Если продавец снизит цену до&nbsp;12&nbsp;млн, посчитаем заново.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-label="Ваш агент">
+    <div class="agent">
+      <span class="avatar" aria-hidden="true">ИА</span>
+      <div><b>Имя агента<span class="ex">пример</span></b><span class="small">Агентство и телефон агента появятся здесь, когда он отправит карточку.</span></div>
+    </div>
+  </section>
+
+  <footer>Это аналитика рыночной цены и срока продажи, а не отчёт об оценке по закону №&nbsp;135-ФЗ. Цены соседей — объявления Авито на 3&nbsp;ноября 2026&nbsp;года. Расчёт настроен на разборах опытного инвестора по старому фонду Петербурга.</footer>
+</main>
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+  var NB = " ";
+  function f1(v) { return v.toFixed(1).replace(".", ","); }
+  function fp(v) { return String(Math.round(v * 100) / 100).replace(".", ","); }
+  function el(tag, cls, parent) { var e = document.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; }
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function sv(tag, attrs, parent) { var e = document.createElementNS(SVGNS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+
+  /* tooltip: values lead, labels follow; textContent only */
+  var tip = document.getElementById("tip");
+  function showTip(x, y, value, label) {
+    tip.textContent = "";
+    var s = el("strong", null, tip); s.textContent = value;
+    if (label) { var l = el("span", null, tip); l.textContent = label; }
+    tip.hidden = false;
+    var w = tip.offsetWidth, h = tip.offsetHeight, vw = document.documentElement.clientWidth;
+    var left = Math.min(Math.max(8, x + 14), vw - w - 8), top = y - h - 12;
+    if (top < 8) top = y + 16;
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  function hideTip() { tip.hidden = true; }
+  function bindTip(node, value, label) {
+    node.addEventListener("pointermove", function (e) { showTip(e.clientX, e.clientY, value, label); });
+    node.addEventListener("pointerleave", hideTip);
+    node.addEventListener("focus", function () { var r = node.getBoundingClientRect(); showTip(r.left + r.width / 2, r.top, value, label); });
+    node.addEventListener("blur", hideTip);
+  }
+
+  /* time on sale from the expert model, version 0.4 */
+  var PQ = 11.715, THETA = 0.163636, STUCK = PQ * 1.2;
+  function expo(P) { var op = P / PQ - 1; if (op > 0.2) return null; return Math.max(0, 5 * Math.pow(2.4, op / THETA) - 2); }
+  function speedClass(e) {
+    if (e === null) return ["bad", "!", "не продастся"];
+    if (e <= 3) return ["good", "✓", "быстро: до 3 месяцев"];
+    if (e <= 6) return ["warn", "!", "средне: 3–6 месяцев"];
+    return ["bad", "!", "долго: больше 6 месяцев"];
+  }
+  function monthsText(e) { if (e < 1) return "меньше чем за" + NB + "месяц"; return "примерно за" + NB + f1(e) + NB + "месяца"; }
+
+  /* 1. price scale */
+  (function () {
+    var host = document.getElementById("scale"), lo = 8.5, hi = 15;
+    function pct(v) { return ((v - lo) / (hi - lo) * 100) + "%"; }
+    var lab = el("div", "ask-label", host); lab.textContent = "Цена объявления 13,0" + NB + "млн"; lab.style.left = pct(13);
+    var tr = el("div", "scale-track", host);
+    [["zone zone-good", 8.5, 9.06, "до 9,1 млн", "выгодно для перепродажи"],
+     ["zone zone-market", 11.715, 13.632, "11,7–13,6 млн", "рыночная цена"],
+     ["zone zone-bad", 14.058, 15, "дороже 14,1 млн", "не купят"]].forEach(function (z) {
+      var d = el("div", z[0], tr); d.style.left = pct(z[1]); d.style.width = ((z[2] - z[1]) / (hi - lo) * 100) + "%";
+      bindTip(d, z[3], z[4]);
+    });
+    var m = el("div", "ask-mark", tr); m.style.left = pct(13);
+    [9, 10, 11, 12, 13, 14, 15].forEach(function (t) { var k = el("div", "tick", tr); k.textContent = t === 15 ? "15" + NB + "млн" : String(t); k.style.left = pct(t); if (t === 15) k.style.transform = "translateX(-100%)"; });
+  })();
+
+  /* 2. speed meter at the asking price */
+  (function () {
+    var host = document.getElementById("speed"), e = expo(13), MAXM = 12;
+    var tr = el("div", "speed-track", host); el("i", null, tr); el("i", null, tr); el("i", null, tr);
+    var pos = Math.min(e, MAXM) / MAXM * 100;
+    var mk = el("div", "speed-mark", host); mk.style.left = pos + "%";
+    var lab = el("div", "speed-label", host); lab.textContent = "≈" + NB + f1(e) + NB + "мес. по цене 13" + NB + "млн"; lab.style.left = "0";
+  })();
+
+  /* 3. resale: price → time on sale (investor view) */
+  var slider = document.getElementById("speedPrice");
+  var chartState = { draw: null };
+  function readout(P) {
+    var e = expo(P), c = speedClass(e), pill = document.getElementById("speedPill");
+    pill.className = "pill pill-" + c[0];
+    pill.querySelector(".ic").textContent = c[1];
+    document.getElementById("speedPillText").textContent = c[2];
+    var head = "Если выставить за" + NB + f1(P) + NB + "млн";
+    document.getElementById("speedText").textContent = e === null ? head + " — квартиру, скорее всего, не купят" : head + " — продастся " + monthsText(e);
+    slider.setAttribute("aria-valuetext", f1(P) + " млн, " + (e === null ? "не продастся" : monthsText(e)));
+  }
+  function drawSpeed() {
+    var host = document.getElementById("speedChart");
+    if (!host.offsetParent) return;
+    host.textContent = "";
+    var W = Math.max(280, host.clientWidth), H = W < 520 ? 230 : 260;
+    var m = { l: 30, r: 10, t: 22, b: 28 }, x0 = 10, x1 = 15, y1 = 15;
+    function X(v) { return m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r); }
+    function Y(v) { return H - m.b - v / y1 * (H - m.t - m.b); }
+    var svg = sv("svg", { width: W, height: H, viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "График: срок продажи растёт с ценой; при 12 млн около 3,7 месяца, при 13 млн 7, при 14 млн 12, дороже 14,1 млн квартиру не купят" }, host);
+    [[0, 3, "var(--good-wash)", "быстро"], [3, 6, "var(--warn-wash)", "средне"], [6, y1, "var(--bad-wash)", "долго"]].forEach(function (b) {
+      sv("rect", { x: m.l, y: Y(b[1]), width: W - m.l - m.r, height: Y(b[0]) - Y(b[1]), fill: b[2] }, svg);
+      var t = sv("text", { x: W - m.r - 6, y: Y(b[0]) - 6, "text-anchor": "end", fill: "var(--ink-2)", "font-size": 12 }, svg); t.textContent = b[3];
+    });
+    [0, 3, 6, 9, 12, 15].forEach(function (v) {
+      sv("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: "var(--line)", "stroke-width": 1 }, svg);
+      var t = sv("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, svg); t.textContent = v;
+    });
+    var yt = sv("text", { x: m.l - 6, y: m.t - 10, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, svg); yt.textContent = "мес.";
+    [10, 11, 12, 13, 14, 15].forEach(function (v) {
+      var t = sv("text", { x: X(v), y: H - 8, "text-anchor": v === 15 ? "end" : "middle", fill: "var(--muted)", "font-size": 11 }, svg); t.textContent = v === 15 ? "15 млн" : v;
+    });
+    sv("line", { x1: X(STUCK), x2: X(STUCK), y1: Y(expo(STUCK - 0.0001)), y2: Y(y1), stroke: "var(--bad)", "stroke-width": 1 }, svg);
+    var st = sv("text", { x: X(STUCK) - 6, y: Y(14) + 4, "text-anchor": "end", fill: "var(--bad-ink)", "font-size": 12 }, svg); st.textContent = "дороже — не купят";
+    var d = "", P;
+    for (P = x0; P <= STUCK + 1e-9; P += 0.02) { d += (d ? "L" : "M") + X(P).toFixed(1) + " " + Y(expo(Math.min(P, STUCK - 0.0001))).toFixed(1); }
+    sv("path", { d: d, fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    sv("circle", { cx: X(STUCK), cy: Y(expo(STUCK - 0.0001)), r: 4, fill: "var(--accent)", stroke: "var(--bg)", "stroke-width": 2 }, svg);
+    var selLine = sv("line", { y1: m.t, y2: H - m.b, stroke: "var(--ink)", "stroke-width": 1, opacity: 0.35 }, svg);
+    var selDot = sv("circle", { r: 6, fill: "var(--accent)", stroke: "var(--bg)", "stroke-width": 2 }, svg);
+    var hovLine = sv("line", { y1: m.t, y2: H - m.b, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" }, svg);
+    var hovDot = sv("circle", { r: 4, fill: "var(--ink-2)", stroke: "var(--bg)", "stroke-width": 2, visibility: "hidden" }, svg);
+    function place(line, dot, P) {
+      var e = expo(P); line.setAttribute("x1", X(P)); line.setAttribute("x2", X(P));
+      if (e !== null) { dot.setAttribute("cx", X(P)); dot.setAttribute("cy", Y(e)); }
+    }
+    chartState.draw = function (P) { place(selLine, selDot, P); selDot.setAttribute("visibility", expo(P) === null ? "hidden" : "visible"); };
+    chartState.draw(parseFloat(slider.value));
+    var hit = sv("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+    function priceAt(ev) { var r = svg.getBoundingClientRect(), v = x0 + (ev.clientX - r.left - m.l) / (W - m.l - m.r) * (x1 - x0); return Math.round(Math.min(x1, Math.max(x0, v)) * 10) / 10; }
+    hit.addEventListener("pointermove", function (ev) {
+      var v = priceAt(ev), e = expo(v);
+      hovLine.setAttribute("visibility", "visible"); hovDot.setAttribute("visibility", e === null ? "hidden" : "visible");
+      place(hovLine, hovDot, v);
+      showTip(ev.clientX, ev.clientY, e === null ? "не купят" : (e < 1 ? "меньше месяца" : "≈" + NB + f1(e) + NB + "мес."), "если выставить за " + f1(v) + " млн");
+    });
+    hit.addEventListener("pointerleave", function () { hovLine.setAttribute("visibility", "hidden"); hovDot.setAttribute("visibility", "hidden"); hideTip(); });
+    hit.addEventListener("click", function (ev) { slider.value = priceAt(ev); slider.dispatchEvent(new Event("input")); });
+  }
+  slider.addEventListener("input", function () { var P = parseFloat(slider.value); readout(P); if (chartState.draw) chartState.draw(P); });
+
+  /* 4. waterfall: from renovated neighbours to this flat */
+  (function () {
+    var host = document.getElementById("wf"), MAX = 24;
+    var rows = [
+      { label: "Квартиры с ремонтом рядом, в среднем", sub: "296 тыс. ₽ за м², пересчитано на 71,8 м²", a: 0, b: 21.267, t: 1 },
+      { label: "Нужен полный ремонт", a: 21.267, b: 13.888 },
+      { label: "Дом-памятник: ремонт сложнее", a: 13.888, b: 13.632 },
+      { label: "Цена без спешки", sub: "продажа около 10 месяцев", a: 0, b: 13.632, t: 1 },
+      { label: "Скидка за быструю продажу", a: 13.632, b: 11.715 },
+      { label: "Цена быстрой продажи", sub: "продажа около 3 месяцев", a: 0, b: 11.715, t: 1 }
+    ];
+    function pct(v) { return (v / MAX * 100) + "%"; }
+    rows.forEach(function (r) {
+      var row = el("div", "wf-row" + (r.t ? " total" : ""), host);
+      var lab = el("div", "wf-label", row); lab.appendChild(document.createTextNode(r.label));
+      if (r.sub) { var s = el("small", null, lab); s.textContent = r.sub; }
+      var tr = el("div", "wf-track", row);
+      var ref = el("div", "wf-ref", tr); ref.style.left = pct(13);
+      var lo = Math.min(r.a, r.b), hi = Math.max(r.a, r.b);
+      var bar = el("div", "wf-bar " + (r.t ? "t" : "m"), tr); bar.style.left = pct(lo); bar.style.width = pct(hi - lo);
+      var v = el("div", "wf-val " + (r.t ? "in" : "left"), tr);
+      v.textContent = r.t ? f1(r.b) + NB + "млн" : "−" + f1(r.a - r.b) + NB + "млн";
+      v.style.left = r.t ? pct(r.b) : pct(lo);
+      bar.tabIndex = 0; bindTip(bar, r.t ? f1(r.b) + " млн" : "−" + f1(r.a - r.b) + " млн", r.label);
+    });
+    var axisRow = el("div", "wf-row", host); el("div", null, axisRow);
+    var ax = el("div", "wf-axis", axisRow);
+    var k = el("div", "tick", ax); k.style.top = "0"; k.style.left = pct(13); k.textContent = "13,0 — цена объявления"; k.style.color = "var(--ink-2)";
+  })();
+
+  /* 5. neighbours: price per m² */
+  var NBR = [
+    { g: 0, a: "ул. Ткачей, 46", f: "3-к, 63 м², 3/5", p: 10.5, m: 166.7 },
+    { g: 0, a: "ул. Ткачей, 46", f: "3-к, 67,5 м², 5/5", p: 11.45, m: 169.6 },
+    { g: 0, a: "пр. Обуховской Обороны, 90", f: "3-к, 76,7 м², 4/5", p: 14.0, m: 182.5 },
+    { g: 0, a: "пр. Елизарова, 31к3", f: "3-к, 89,2 м², 4/4", p: 16.3, m: 182.7 },
+    { g: 0, a: "ул. Ткачей, 46", f: "3-к, 73,7 м², 3/5", p: 14.0, m: 190.0 },
+    { g: 0, a: "пр. Елизарова, 20", f: "3-к, 73,9 м², 4/5", p: 14.55, m: 196.9 },
+    { g: 0, a: "ул. Бабушкина, 29к1", f: "4-к, 85,5 м², 4/5", p: 16.9, m: 197.7 },
+    { g: 0, a: "ул. Бабушкина, 29к2", f: "2-к, 57,7 м², 5/5", p: 11.95, m: 207.1 },
+    { g: 0, a: "пр. Елизарова, 14", f: "3-к, 75,1 м², 5/5", p: 16.5, m: 219.7 },
+    { g: 0, a: "пр. Елизарова, 24", f: "3-к, 74 м², 1/5", p: 17.25, m: 233.1 },
+    { g: 1, a: "ул. Ольги Берггольц, 9к2", f: "3-к, 67,7 м², 2/4", p: 13.5, m: 199.4 },
+    { g: 1, a: "ул. Ткачей, 56", f: "1-к, 52 м², 1/4", p: 10.9, m: 209.6 },
+    { g: 1, a: "пр. Обуховской Обороны, 119", f: "2-к, 55 м², 1/5", p: 12.0, m: 218.2 },
+    { g: 1, a: "ул. Ольги Берггольц, 17", f: "3-к, 74,2 м², 4/5", p: 16.8, m: 226.4 },
+    { g: 1, a: "пр. Елизарова, 29", f: "3-к, 81,4 м², 2/5", p: 19.5, m: 239.6 },
+    { g: 2, a: "пр. Обуховской Обороны, 93", f: "2-к, 58,7 м², 4/5", p: 16.9, m: 287.9 },
+    { g: 2, a: "ул. Ткачей, 56", f: "3-к, 77 м², 3/4", p: 22.2, m: 288.3 },
+    { g: 2, a: "ул. Бабушкина, 14", f: "2-к, 57,3 м², 2/5", p: 16.97, m: 296.2 },
+    { g: 2, a: "ул. Ольги Берггольц, 17", f: "3-к, 74,3 м², 3/5", p: 22.9, m: 308.2 },
+    { g: 2, a: "пр. Елизарова, 10", f: "3-к, 63,5 м², 4/4", p: 19.6, m: 308.7 }
+  ];
+  var GROUPS = ["В старом состоянии, как эта, 57–89 м²", "С частичным ремонтом, 52–81 м²", "Со свежим ремонтом, 57–77 м²"];
+  var LO = 150, HI = 320, ASK = 181.1;
+  function dpPct(v) { return (v - LO) / (HI - LO) * 100; }
+  function drawDots() {
+    var host = document.getElementById("dp"); host.textContent = "";
+    GROUPS.forEach(function (name, gi) {
+      var row = el("div", "dp-row", host);
+      var n = el("div", "dp-name", row); n.textContent = name;
+      var tr = el("div", "dp-track", row);
+      var ask = el("div", "dp-ask", tr); ask.style.left = dpPct(ASK) + "%";
+      var w = tr.clientWidth || 300, lanes = [0, -12, 12, -24, 24], last = {};
+      NBR.filter(function (d) { return d.g === gi; }).sort(function (a, b) { return a.m - b.m; }).forEach(function (d) {
+        var px = dpPct(d.m) / 100 * w, lane = 0;
+        for (var i = 0; i < lanes.length; i++) { if (last[i] === undefined || px - last[i] >= 15) { lane = i; break; } }
+        last[lane] = px;
+        var b = el("button", "dot", tr); b.type = "button";
+        b.style.left = dpPct(d.m) + "%"; b.style.top = (25 + lanes[lane]) + "px";
+        b.setAttribute("aria-label", d.a + ", " + d.f + ", " + fp(d.p) + " млн, " + f1(d.m) + " тыс. ₽ за м²");
+        bindTip(b, f1(d.m) + " тыс. ₽ за м²", d.a + " · " + d.f + " · " + fp(d.p) + " млн");
+      });
+    });
+    var ax = el("div", "dp-axis", host);
+    [150, 200, 250, 300].forEach(function (t) { var k = el("div", "tick", ax); k.style.top = "0"; k.style.left = dpPct(t) + "%"; k.textContent = t === 300 ? "300 тыс. ₽/м²" : String(t); });
+  }
+  (function () {
+    var tb = document.querySelector("#dpTable tbody");
+    NBR.slice().sort(function (a, b) { return a.m - b.m; }).forEach(function (d) {
+      var tr = el("tr", null, tb);
+      [d.a, d.f, fp(d.p), f1(d.m)].forEach(function (v) { var td = el("td", null, tr); td.textContent = v; });
+    });
+  })();
+
+  /* 6. investor receipts: costs against the difference; a loss shows as the hatched part past the difference mark */
+  (function () {
+    var host = document.getElementById("receipts"), SCALE = 5.054;
+    var names = ["комиссия агенту", "налог", "коммуналка, подготовка, сделка", "стоимость денег"];
+    var cases = [
+      { title: "Купить за 13,0 млн", sub: "ремонт и продажа без спешки, около 17 месяцев", diff: 3.959, c: [0.638, 0.594, 0.333, 3.489], res: -1.095,
+        lines: [["Продажа после ремонта", "21,3"], ["Покупка", "− 13,0"], ["Ремонт", "− 4,3"], ["Разница", "4,0", "sum"], ["Комиссия агенту", "− 0,6"], ["Налог", "− 0,6"],
+                ["Коммуналка и сделка", "− 0,3"], ["Стоимость денег за 17 мес.", "− 3,5"]],
+        result: "Минус 1,1" + NB + "млн · расходы больше разницы" },
+      { title: "Купить за 9,1 млн", sub: "продажа без ремонта, около 13 месяцев", diff: 4.573, c: [0.409, 0.686, 0.484, 1.396], res: 1.597,
+        lines: [["Продажа без ремонта", "13,6"], ["Покупка", "− 9,1"], ["Разница", "4,6", "sum"], ["Комиссия агенту", "− 0,4"], ["Налог", "− 0,7"],
+                ["Коммуналка, подготовка, сделка", "− 0,5"], ["Стоимость денег за 13 мес.", "− 1,4"]],
+        result: "Заработок +1,6" + NB + "млн · 30 % годовых" }
+    ];
+    cases.forEach(function (k) {
+      var card = el("article", "receipt", host);
+      var h = el("h3", null, card); h.textContent = k.title;
+      var sub = el("p", "sub", card); sub.textContent = k.sub;
+      var costs = k.c.reduce(function (s, v) { return s + v; }, 0);
+      var wrap = el("div", "stack-wrap", card);
+      wrap.setAttribute("role", "img");
+      wrap.setAttribute("aria-label", "Разница " + f1(k.diff) + " млн, расходы " + f1(costs) + " млн, " + (k.res > 0 ? "заработок " + f1(k.res) : "убыток " + f1(-k.res)) + " млн");
+      var stack = el("div", "stack", wrap);
+      k.c.forEach(function (v, i) { var s = el("div", "seg c", stack); s.style.width = (v / SCALE * 100) + "%"; bindTip(s, f1(v) + " млн", names[i]); });
+      if (k.res > 0) { var p = el("div", "seg p", stack); p.style.width = (k.res / SCALE * 100) + "%"; bindTip(p, f1(k.res) + " млн", "заработок"); }
+      else { var ls = el("div", "seg-loss", wrap); ls.style.left = (k.diff / SCALE * 100) + "%"; ls.style.width = ((costs - k.diff) / SCALE * 100) + "%"; bindTip(ls, f1(-k.res) + " млн", "убыток: расходы больше разницы"); }
+      var dm = el("div", "diff-mark", wrap); dm.style.left = (k.diff / SCALE * 100) + "%";
+      var key = el("div", "stack-key", card);
+      function keyItem(cls, bg, text) { var s = el("span", null, key); var i = el("i", cls, s); if (bg) i.style.background = bg; s.appendChild(document.createTextNode(text)); }
+      keyItem(null, "var(--bar)", "расходы");
+      if (k.res > 0) keyItem(null, "var(--good)", "заработок"); else keyItem("hatch", null, "убыток");
+      keyItem("ln", null, "разница");
+      var dl = el("dl", "lines", card);
+      k.lines.forEach(function (r) {
+        var dt = el("dt", r[2] || null, dl); dt.textContent = r[0];
+        var dd = el("dd", r[2] || null, dl); dd.textContent = r[1] + NB + "млн";
+      });
+      var res = el("p", "result " + (k.res > 0 ? "good" : "bad"), card);
+      res.textContent = k.result;
+    });
+  })();
+
+  /* goal switch: #invest opens the investor view, anything else the home view */
+  var goal = "home";
+  function setGoal(g) {
+    goal = g === "invest" ? "invest" : "home";
+    document.querySelectorAll("[data-goal]").forEach(function (n) { n.hidden = n.getAttribute("data-goal") !== goal; });
+    document.querySelectorAll(".goal button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-set") === goal ? "true" : "false"); });
+    if (goal === "invest") drawSpeed();
+  }
+  document.querySelectorAll(".goal button").forEach(function (b) { b.addEventListener("click", function () { setGoal(b.getAttribute("data-set")); }); });
+  window.addEventListener("hashchange", function () { setGoal(location.hash === "#invest" ? "invest" : "home"); });
+
+  readout(parseFloat(slider.value));
+  setGoal(location.hash === "#invest" ? "invest" : "home");
+  drawDots();
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { drawDots(); drawSpeed(); }, 120); });
+})();
+</script>
+</body>
+</html>
